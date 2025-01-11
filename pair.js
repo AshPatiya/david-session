@@ -6,7 +6,7 @@ const fs = require('fs');
 let router = express.Router()
 const pino = require("pino");
 const {
-    default: Gifted_Tech,
+    default: Acd_Md,
     useMultiFileAuthState,
     delay,
     makeCacheableSignalKeyStore,
@@ -38,13 +38,13 @@ router.get('/', async (req, res) => {
              if(!Pair_Code_By_Gifted_Tech.authState.creds.registered) {
                 await delay(1500);
                         num = num.replace(/[^0-9]/g,'');
-                            const code = await Pair_Code_By_Gifted_Tech.requestPairingCode(num)
+                            const code = await Pair_Code_By_Acd_Md.requestPairingCode(num)
                  if(!res.headersSent){
                  await res.send({code});
                      }
                  }
-            Pair_Code_By_Gifted_Tech.ev.on('creds.update', saveCreds)
-            Pair_Code_By_Gifted_Tech.ev.on("connection.update", async (s) => {
+            Pair_Code_By_Acd_Md.ev.on('creds.update', saveCreds)
+            Pair_Code_By_Acd_Md.ev.on("connection.update", async (s) => {
                 const {
                     connection,
                     lastDisconnect
@@ -58,26 +58,23 @@ router.get('/', async (req, res) => {
 
                let GIFTED_MD_TEXT = `
 ┏━━━━━━━━━━━━━━
-┃QUEEN_ANITA_V2 SESSION IS 
+┃ACD-MD-V2 SESSION IS 
 ┃SUCCESSFULLY
 ┃CONNECTED ✅🔥
 ┗━━━━━━━━━━━━━━━
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❶ || Creator = 𖥘 DAVID CYRIL 𖥘
+❶ || Creator = 𖥘 DARK TECH ZONE 𖥘
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VaeRru3ADTOEKPCPom0L
+❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VawxBmHFnSzBLlIQ3y1e
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-Please Follow My Support Channel
-Wanna talk to me?👉 https://t.me/deecee_x 👈
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-©*2024-2099 David Cyril*
+
 
 _Don't Forget To Give Star To My Repo_`
- await Pair_Code_By_Gifted_Tech.sendMessage(Pair_Code_By_Gifted_Tech.user.id,{text:GIFTED_MD_TEXT},{quoted:session})
+ await Pair_Code_By_Acd_Md.sendMessage(Pair_Code_By_Acd_Md.user.id,{text:ACD_MD_TEXT},{quoted:session})
  
 
         await delay(100);
-        await Pair_Code_By_Gifted_Tech.ws.close();
+        await Pair_Code_By_Acd_Md.ws.close();
         return await removeFile('./temp/'+id);
             } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10000);
@@ -92,6 +89,6 @@ _Don't Forget To Give Star To My Repo_`
          }
         }
     }
-    return await GIFTED_MD_PAIR_CODE()
+    return await ACD_MD_PAIR_CODE()
 });
 module.exports = router
